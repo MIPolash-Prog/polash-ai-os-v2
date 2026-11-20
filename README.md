@@ -1,35 +1,33 @@
-# Polash AI OS v2
+# Polash AI OS · v2
 
-Beautiful upgraded version of https://mipolash-prog.github.io/polash-ai-os/#home
+The rebuilt personal operating system of Monjurul Islam Polash — a static, dependency-free site with a 610-tool AI directory, a private local workspace and the full service portfolio.
 
-## Features
-- Modern dark theme with animated aurora background & glassmorphism cards
-- Responsive sidebar navigation that collapses on mobile
-- Sections: Home, About, Services, Portfolio, AI Tools Hub, Contact
-- Theme toggle (dark/light), smooth scroll, section highlighting on scroll
-- Terminal-styled hero visual, 500+ AI tools directory with search & favorites
-- Single-file `index.html` — zero dependencies, ready for GitHub Pages
+## Pages
 
-## Deploy to GitHub Pages
+- `index.html` — hero, services, live tool preview, case studies, reviews, YouTube network, learning, pricing, FAQ, contact
+- `tools.html` — searchable and filterable directory of 610 tools in 18 categories
+- `dashboard.html` — tasks, goals, notes, earnings, focus timer, world clocks, learning progress, backup/restore
+- `privacy-policy.html`, `404.html`
 
-1. Create a new repository on GitHub (e.g. `polash-ai-os-v2`).
-2. Clone it locally:
-   ```
-   git clone https://github.com/<your-username>/polash-ai-os-v2.git
-   cd polash-ai-os-v2
-   ```
-3. Copy `index.html` and `README.md` into the repo, then:
-   ```
-   git add index.html README.md
-   git commit -m "chore: upgrade Polash AI OS v2"
-   git push origin main
-   ```
-4. In GitHub: Settings → Pages → Build and deployment → Branch: `main` → Save.
-5. Your site will be live at `https://<your-username>.github.io/polash-ai-os-v2/`.
+## Stack
 
-## Local development
-Open `index.html` directly in your browser, or serve it:
+Plain HTML, CSS and JavaScript. No build step, no framework, no backend.
+
+- `css/main.css` — design system, dark/light themes, responsive layout
+- `js/main.js` — navigation, theme, reveal animations, command palette, tool preview, contact form, PWA registration
+- `js/tools.js` — directory rendering, filters, saved tools
+- `js/dashboard.js` — local workspace logic and backups
+- `data/tools.js` — curated tool data
+- `sw.js` + `manifest.webmanifest` — installable, offline-capable PWA
+
+## Local preview
+
 ```
-python3 -m http.server 8000
-# then visit http://localhost:8000
+python -m http.server 8080
 ```
+
+Then open `http://localhost:8080/`.
+
+## Deploy
+
+The repository is published with GitHub Pages from the `main` branch, root folder. Any static host works without changes.

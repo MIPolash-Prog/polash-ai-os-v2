@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Workspace — tasks, goals, earnings · Polash AI OS</title>
+  <meta name="description" content="A private workspace for tasks, goals, notes, earnings, focus sessions, world clocks, learning progress and saved AI tools. Everything stays in your browser.">
+  <meta name="author" content="Monjurul Islam Polash">
+  <meta name="theme-color" content="#070b16">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://mipolash-prog.github.io/polash-ai-os-v2/dashboard.html">
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script>try{var t=localStorage.getItem("paos.v2.theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Polash AI OS home">
+        <span class="brand-mark" aria-hidden="true"><span>P</span></span>
+        <span class="brand-text"><b>Polash AI OS</b><small>Build · Learn · Earn · Grow</small></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="tools.html">AI Tools</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#youtube">YouTube</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="dashboard.html" class="active" aria-current="page">Workspace</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+          <svg class="icon moon" aria-hidden="true"><use href="assets/icons.svg#i-moon"></use></svg>
+          <svg class="icon sun" aria-hidden="true"><use href="assets/icons.svg#i-sun"></use></svg>
+        </button>
+        <a class="btn btn-gold btn-sm hire" href="index.html#contact">Hire me</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html#services">Services</a>
+    <a href="tools.html">AI Tools</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#youtube">YouTube</a>
+    <a href="index.html#learn">Learn</a>
+    <a href="dashboard.html">Workspace</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="dash-hero">
+          <div>
+            <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Private by default</span>
+            <h1>Your <span class="grad">workspace.</span></h1>
+            <p>Tasks, goals, notes, earnings, focus sessions and learning — in one place. Everything is saved in your browser only. No account, no server, no tracking.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn btn-ghost btn-sm" href="tools.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-spark"></use></svg> AI tools</a>
+            <a class="btn btn-gold btn-sm" href="index.html#contact"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-mail"></use></svg> Hire me</a>
+          </div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><small>Open tasks</small><b id="statTasks">0</b></div>
+          <div class="dash-stat"><small>Goals</small><b id="statGoals">0</b></div>
+          <div class="dash-stat"><small>Earnings tracked</small><b id="statMoney">$0</b></div>
+          <div class="dash-stat"><small>Saved tools</small><b id="statFavs">0</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Workspace panels">
+      <div class="dash-grid">
+        <section class="panel" aria-labelledby="tasksH">
+          <div class="panel-head">
+            <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-check"></use></svg></span>
+            <h3 id="tasksH">Tasks</h3>
+            <button class="right" id="clearDone" type="button" style="border:0;background:transparent;color:var(--dim);font-size:11px">Clear done</button>
+          </div>
+          <form class="inline-form" id="taskForm">
+            <input class="input" id="taskInput" placeholder="Add a task and press Enter" aria-label="New task" autocomplete="off">
+            <button class="btn btn-gold btn-sm" type="submit" aria-label="Add task"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-plus"></use></svg></button>
+          </form>
+          <div class="task-list" id="taskList"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="goalsH">
+          <div class="panel-head">
+            <span class="icon-tile cyan"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-target"></use></svg></span>
+            <h3 id="goalsH">Goals</h3>
+          </div>
+          <form class="inline-form" id="goalForm" style="margin-bottom:12px">
+            <input class="input" id="goalInput" placeholder="Add a goal" aria-label="New goal" autocomplete="off">
+            <button class="btn btn-ghost btn-sm" type="submit" aria-label="Add goal"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-plus"></use></svg></button>
+          </form>
+          <div id="goalList"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="notesH">
+          <div class="panel-head">
+            <span class="icon-tile violet"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-note"></use></svg></span>
+            <h3 id="notesH">Notes</h3>
+            <span class="right save-state" id="notesState">Saved</span>
+          </div>
+          <textarea class="textarea notes-area" id="notesArea" placeholder="Quick notes, client details, ideas…" aria-label="Notes"></textarea>
+        </section>
+
+        <section class="panel" aria-labelledby="moneyH">
+          <div class="panel-head">
+            <span class="icon-tile green"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-money"></use></svg></span>
+            <h3 id="moneyH">Earnings tracker</h3>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:10px">
+            <div class="money-total" id="moneyTotal">$0</div>
+            <small class="dim" id="moneyCount">no entries yet</small>
+          </div>
+          <form id="moneyForm" style="margin-bottom:10px">
+            <div class="form-row">
+              <input class="input" id="moneySource" placeholder="Source (e.g. Fiverr)" aria-label="Income source" autocomplete="off">
+              <input class="input" id="moneyAmount" type="number" min="0" step="0.01" placeholder="Amount (USD)" aria-label="Amount in USD">
+            </div>
+            <div class="inline-form" style="margin-top:7px">
+              <input class="input" id="moneyDate" type="date" aria-label="Date">
+              <button class="btn btn-ghost btn-sm" type="submit"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-plus"></use></svg> Add</button>
+            </div>
+          </form>
+          <div style="max-height:200px;overflow:auto">
+            <table class="table">
+              <thead><tr><th>Source</th><th>Date</th><th>Amount</th><th></th></tr></thead>
+              <tbody id="moneyBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="timerH">
+          <div class="panel-head">
+            <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-timer"></use></svg></span>
+            <h3 id="timerH">Focus session</h3>
+            <span class="right">25 minutes</span>
+          </div>
+          <div class="timer-ring" id="timerRing" style="--p:0">
+            <span class="timer-time" id="timerTime">25:00</span>
+          </div>
+          <div class="timer-actions">
+            <button class="btn btn-gold btn-sm" id="timerStart" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-play"></use></svg> Start</button>
+            <button class="btn btn-ghost btn-sm" id="timerReset" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-refresh"></use></svg> Reset</button>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="clockH">
+          <div class="panel-head">
+            <span class="icon-tile cyan"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-clock"></use></svg></span>
+            <h3 id="clockH">World clocks</h3>
+            <span class="right">GMT+6 base</span>
+          </div>
+          <div class="clocks" id="clockGrid"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="learnH">
+          <div class="panel-head">
+            <span class="icon-tile green"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-book"></use></svg></span>
+            <h3 id="learnH">Learning progress</h3>
+            <a class="right" href="index.html#learn" style="color:var(--gold);text-decoration:none">Platforms</a>
+          </div>
+          <div id="learnList"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="savedH">
+          <div class="panel-head">
+            <span class="icon-tile violet"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-star"></use></svg></span>
+            <h3 id="savedH">Saved tools</h3>
+            <a class="right" href="tools.html" style="color:var(--gold);text-decoration:none">Browse</a>
+          </div>
+          <div id="savedTools" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="dataH" style="grid-column:1 / -1">
+          <div class="panel-head">
+            <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-database"></use></svg></span>
+            <h3 id="dataH">Your data</h3>
+            <span class="right">Stored in this browser only</span>
+          </div>
+          <p class="muted" style="font-size:12.5px;margin-bottom:12px">Export a JSON backup before changing devices. Import it on another browser to restore tasks, goals, notes, earnings, learning progress and saved tools.</p>
+          <div class="data-actions">
+            <button class="btn btn-ghost btn-sm" id="exportBtn" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-download"></use></svg> Export backup</button>
+            <button class="btn btn-ghost btn-sm" id="importBtn" type="button"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-upload"></use></svg> Import backup</button>
+            <button class="btn btn-ghost btn-sm" id="resetBtn" type="button" style="color:var(--red)"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-trash"></use></svg> Erase everything</button>
+          </div>
+          <input type="file" id="importFile" accept="application/json" class="sr-only" aria-label="Choose backup file">
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0">
+        <span>© <span id="year">2026</span> Monjurul Islam Polash · Polash IT Solutions</span>
+        <span class="mini"><a href="index.html">Home</a><a href="tools.html">AI tools</a><a href="privacy-policy.html">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/tools.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
