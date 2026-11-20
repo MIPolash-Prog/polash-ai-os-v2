@@ -1,5 +1,7 @@
 # Polash AI OS · v2
 
+Live: **https://mipolash-prog.github.io/polash-ai-os-v2/**
+
 The rebuilt personal operating system of Monjurul Islam Polash — a static, dependency-free site with a 610-tool AI directory, a private local workspace and the full service portfolio.
 
 ## Pages
