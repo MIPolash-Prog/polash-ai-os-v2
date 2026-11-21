@@ -1,4 +1,4 @@
-const CACHE = "paos-v2-2";
+const CACHE = "paos-v2-3";
 const SHELL = [
   "./",
   "index.html",
